@@ -1,0 +1,71 @@
+<head>
+    <meta charset="UTF-8"/>
+    <title>Input Data Keuangan</title>
+    <meta name="description" content="Dashboard Finance"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Form Pengisian Transaksi</h3>
+        <div class="container">
+            <form>
+                <div class="row">
+                    <div class="col s12">
+                        <label for="date">Tanggal</label>
+                        <input type="text" class="datepicker" id="date">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <select id="divisi">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="sales">Sales</option>
+                                <option value="logistic">Logistic</option>
+                                <option value="warehouse">Warehouse</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                    </div>
+
+                    <div class="col s6">
+                        <label>Jenis Transaksi</label><br><br>
+                        <label>
+                            <input type="radio" name="jenis" id="pemasukan" value="Pemasukan"/>
+                            <span>Pemasukan</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="jenis" id="pengeluaran" value="Pengeluaran"/>
+                            <span>Pengeluaran</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <label for="jumlah">Jumlah</label>
+                        <input type="number" id="jumlah">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                          <textarea id="deskripsi" class="materialize-textarea" length="250"></textarea>
+                          <label for="deskripsi">Deskripsi</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <a class="btn waves-effect waves-light" href="/">Cancel</a>
+                        <button type="button" class="btn waves-effect waves-light" onclick="getData()">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../js/form.js"></script>
+    <script src="../js/materialize.min.js"></script>
+</body>
