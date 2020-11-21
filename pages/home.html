@@ -1,25 +1,90 @@
-<div class="row">
-    <div class="col s6"><h1>Dashboard E-Commerce </h1></div>
-    
-    <div class="col s6">
-        <div class="row">
+<div id="periode">
+    <div class="row">
+        <div class="col s12 m6">
+            <h1 class="judul">Dashboard E-Commerce </h1>
+        </div>
 
-            <div class="col s3 right-align" > Bulan
+        <div class="col s12 m6">
+            <div class="row">
+
+                <div class="col s3 right-align"> Bulan
                 </div>
 
-                <div class="col s3 " id="dd-bulan"> 
+                <div class="col s3 " id="dd-bulan">
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Pilih Bulan</a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">Semua</a></li>
+                        <li><a href="#!">Januari</a></li>
+                        <li><a href="#!">Februari</a></li>
+                        <li><a href="#!">Maret</a></li>
+                        <li><a href="#!">April</a></li>
+                        <li><a href="#!">Mei</a></li>
+                        <li><a href="#!">Juni</a></li>
+                        <li><a href="#!">Juli</a></li>
+                        <li><a href="#!">Agustus</a></li>
+                        <li><a href="#!">September</a></li>
+                        <li><a href="#!">Oktober</a></li>
+                        <li><a href="#!">November</a></li>
+                        <li><a href="#!">Desember</a></li>
+                    </ul>
                 </div>
 
                 <div class="col s3 right-align"> Tahun
                 </div>
 
-                <div class="col s3 "id="dd-tahun"> 2020
+                <div class="col s3 " id="dd-tahun"> 2020
                 </div>
 
+            </div>
+        </div>
+
+
+
     </div>
+
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card-panel kartu">
+                        <h2 class="center-align">Income</h2>
+                        <div class="center-align jumlah-plus">
+                            <h3><b> + Rp 1.000.000 </b></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m6">
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="card-panel kartu">
+                        <h2 class="center-align">Expense</h2>
+                        <div class="center-align jumlah-min">
+                            <h3><b> - Rp 1.000.000 </b></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
     </div>
 
-
-
-  </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel kartu">
+                <h2 class="center-align">Total</h2>
+                <script src="/js/chart-periode.js"></script>
+                <div id="chart-periode"></div>
+            </div>
+        </div>
+    </div>
 </div>

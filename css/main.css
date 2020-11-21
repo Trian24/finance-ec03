@@ -1,3 +1,30 @@
 .warna-biru{
     background-color: #034079;
 }
+
+.kartu{
+    background-color: #fff;
+    border-radius:40px;
+    box-shadow:0px 40px 80px rgba(3, 64, 121, 0.1);
+}
+
+.jumlah-plus{
+    color: #69C0AD;
+    padding-bottom: 20px;
+}
+
+.jumlah-min{
+    color: #FE6566;
+    padding-bottom: 20px;
+}
+
+
+.judul{
+    font-size: 36pt;
+    font-style: bold;
+}
+
+.sub-judul{
+    font-size: 48pt;
+    font-style: bold;
+}
