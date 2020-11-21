@@ -1,7 +1,9 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
+    // Activate sidebar nav
     var elems = document.querySelectorAll(".sidenav");
     M.Sidenav.init(elems);
-    loadNav;
+    console.log("mencoba load nav");
+    loadNav();
     var page = window.location.hash.substr(1);
     if (page == "") page = "home";
     loadPage(page);
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4) {
-            if (this.status != 200) return;
+            if (this.status != 200) { console.log("gagal nav"); return; }
      
             // Muat daftar tautan menu
             document.querySelectorAll(".topnav, .sidenav").forEach(function(elm) {
