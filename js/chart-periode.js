@@ -70,9 +70,23 @@ function getData() {
     var bulan_res = bulan.options[bulan.selectedIndex].value;
     var tahun = document.getElementById("get-tahun");
     var tahun_res = tahun.options[tahun.selectedIndex].value;
+    
 
 
+    console.log(`${tahun_res}${bulan_res}`);
+    inputTotal_plus(`${tahun_res}${bulan_res}`);
+    inputTotal_min(`${tahun_res}${bulan_res}`);
+}
 
-    console.log(`${tahun_res}-${bulan_res}`);
+function inputTotal_plus(data) {
+    var total_plus=data;
+    document.getElementById("total-plus").innerHTML = total_plus;
+ 
+}
+
+function inputTotal_min(data) {
+    var total_min=data;
+    document.getElementById("total-min").innerHTML = total_min;
+ 
 }
 
