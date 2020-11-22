@@ -61,6 +61,18 @@ Highcharts.chart('chart-period', {
 document.addEventListener('DOMContentLoaded', function() {
     var elem1 = document.querySelectorAll('select');
     var instance1 = M.FormSelect.init(elem1, {});
+    
 
 });
+
+function getData() {
+    var bulan = document.getElementById("get-tanggal");
+    var bulan_res = bulan.options[bulan.selectedIndex].value;
+    var tahun = document.getElementById("get-tahun");
+    var tahun_res = tahun.options[tahun.selectedIndex].value;
+
+
+
+    console.log(`${tahun_res}-${bulan_res}`);
+}
 
