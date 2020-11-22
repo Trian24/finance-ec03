@@ -1,32 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <title>Dashboard Finance</title>
-  <meta name="description" content="Dashboard Finance"/>
+  <meta name="description" content="Dashboard Finance" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/materialize.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
   <script src="https://code.highcharts.com/highcharts.js"></script>
 
-  
-</head>
-<body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;">
-    <!-- Navigasi -->
-    <nav class="warna-biru" role="navigation">
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo" id="logo-container">E-commerce 03</a>
-            <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
-            <ul class="topnav right hide-on-med-and-down"></ul>
-            <ul class="sidenav" id="nav-mobile"></ul>
-        </div>
-    </nav>
-    <!-- Akhir Navigasi -->
 
-    <div class="container" id="body-content"></div>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/nav.js"></script>
+</head>
+
+<body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;">
+  <!-- Navigasi -->
+  <nav class="warna-biru" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo" id="logo-container">E-commerce 03</a>
+      <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul class="sidenav" id="nav-mobile"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+
+  <div class="container" id="body-content"></div>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/nav.js"></script>
+
+  <div id="periode" class="container">
+    <div class="row">
+      <div class="col s12 m6">
+        <h1 class="judul">Dashboard E-Commerce </h1>
+      </div>
+
+      <div class="col s12 m6 filter-waktu">
+        <div class="row">
+
+
+
+          <div class="col s6 ">
+            <div class="input-field">
+              <select id="get-tanggal">
+                <option value="">Semua</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
+              <label>Bulan</label>
+            </div>
+          </div>
+
+
+          <div class="col s6 ">
+            <div class="input-field">
+              <select id="get-tahun">
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+              </select>
+              <label>Tahun</label>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="row">
+            <div class="col s12">
+              <div class="card-panel kartu">
+                <h2 class="center-align">Income</h2>
+                <div class="center-align jumlah-plus">
+                  <h3><b> + Rp <span id="total-min">1.000.000</span></b></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+
+          <div class="row">
+            <div class="col s12">
+              <div class="card-panel kartu">
+                <h2 class="center-align">Expense</h2>
+                <div class="center-align jumlah-min">
+                  <h3><b> - Rp <span id="total-min">1.000.000</span></b></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel kartu">
+            <h2 class="center-align">Total</h2>
+            <div id="chart-period" class="chart-wrapper">
+
+            </div>
+            <script src="/js/chart-periode.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </body>
