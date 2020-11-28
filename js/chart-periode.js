@@ -131,7 +131,7 @@ function grafik(data_api) {
 
         yAxis: {
             title: {
-                text: 'Total Kas'
+                text: 'Total Pendapatan'
             }
         },
 
@@ -158,7 +158,7 @@ function grafik(data_api) {
         },
 
         series: [{
-            name: 'Total Kas',
+            name: 'Total Pendapatan',
             data: array_data(data_api)
         },],
 
@@ -244,7 +244,7 @@ function grafik_tahun(data_api) {
 
         yAxis: {
             title: {
-                text: 'Total Kas'
+                text: 'Total Pendapatan'
             }
         },
 
@@ -271,7 +271,7 @@ function grafik_tahun(data_api) {
         },
 
         series: [{
-            name: 'Total Kas',
+            name: 'Total Pendapatan',
             data: array_data_tahun(data_api)
         },],
 

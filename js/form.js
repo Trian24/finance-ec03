@@ -48,7 +48,7 @@ async function getData() {
     };
     console.log(data);
 
-    if(divisi !== "" && tanggal !== "" && jenis !== "" && jumlah !== "" &&
+    if(divisi !== "" && tanggal !== "" && jenis !== null && jumlah !== "" &&
     deskripsi !== "") {
         fetch(base_url+"transaction", {
         method: 'POST',
@@ -59,7 +59,7 @@ async function getData() {
         })
         .then(response => {
             console.log(response);
-            // showModal(true);
+            formSent();
         })
         .catch(err => {
             console.log(err)
@@ -70,21 +70,9 @@ async function getData() {
     }
 }
 
-function showModal(bool) {
-    var elem = document.getElementById("modal-form");
-    var instance = M.Modal.getInstance(elem);
-    var mcontent = "";
-
-    if(bool){
-        mcontent += `
-        <h4 id="mform-title">Data berhasil dikirim</h4>
-        <p id="mform-text">Selamat</p>`;
-    } else {
-        mcontent += `
-        <h4 id="mform-title">Data kurang lengkap</h4>
-        <p id="mform-text">Lengkapi</p>`;
-    }
-
-    document.getElementById("mform-content").innerHTML = mcontent;
-    instance.open();
+function formSent() {
+    alert("Data sudah terkirim");
+    document.getElementById("date").value = "";
+    document.getElementById("jumlah").value = "";
+    deskripsi = document.getElementById("deskripsi").value = "";
 }
