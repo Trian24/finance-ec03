@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="js/nav.js"></script>
-  
   </head>
 
   <body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;">
@@ -23,6 +22,13 @@
       </div>
     </nav>
     <!-- Akhir Navigasi -->
+    <div id="modal1" class="modal" id="modal-form">
+        <div id="mform-content" class="modal-content">
+            <h4 id="mform-title">Modal Header</h4>
+            <p id="mform-text">A bunch of text</p>
+        </div>
+    </div>
+
     <div class="container kartu-form">
         <div class="row">
             <div class="col s12 m12">
@@ -31,34 +37,34 @@
                   <div class="card-panel kartu">
         <h3>Form Pengisian Transaksi</h3>
         <div class="container">
-            <form>
+            <form onSubmit="getData(); return false;">
                 <div class="row">
                     <div class="col s12">
                         <label for="date">Tanggal</label>
-                        <input type="text" class="datepicker" id="date">
+                        <input type="text" class="datepicker" id="date" >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s6">
                         <div class="input-field">
-                            <select id="divisi">
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="sales">Sales</option>
-                                <option value="logistic">Logistic</option>
-                                <option value="warehouse">Warehouse</option>
+                            <select class="validate" id="divisi" >
+                                <option selected="true" value="" disabled selected>Choose your option</option>
+                                <option value="SALES">Sales</option>
+                                <option value="LOGISTIC">Logistic</option>
+                                <option value="WAREHOUSE">Warehouse</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label for="divisi">Pilih Divisi</label>
                         </div>
                     </div>
 
                     <div class="col s6">
                         <label>Jenis Transaksi</label><br><br>
                         <label>
-                            <input type="radio" name="jenis" id="pemasukan" value="Pemasukan"/>
+                            <input type="radio" name="jenis" id="pemasukan" value="PEMASUKAN" />
                             <span>Pemasukan</span>
                         </label>
                         <label>
-                            <input type="radio" name="jenis" id="pengeluaran" value="Pengeluaran"/>
+                            <input type="radio" name="jenis" id="pengeluaran" value="PENGELUARAN" />
                             <span>Pengeluaran</span>
                         </label>
                     </div>
@@ -72,7 +78,7 @@
                 <div class="row">
                     <div class="col s12">
                         <div class="input-field">
-                          <textarea id="deskripsi" class="materialize-textarea" length="250"></textarea>
+                          <textarea id="deskripsi" class="materialize-textarea" length="250" ></textarea>
                           <label for="deskripsi">Deskripsi</label>
                         </div>
                     </div>
@@ -80,7 +86,7 @@
                 <div class="row">
                     <div class="col s12">
                         <a class="btn waves-effect waves-light" href="/">Cancel</a>
-                        <button type="button" class="btn waves-effect waves-light" onclick="getData()">Submit</button>
+                        <button type="submit" class="btn waves-effect waves-light">Submit</button>
                     </div>
                 </div>
             </form>
