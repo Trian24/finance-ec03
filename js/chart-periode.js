@@ -212,7 +212,7 @@ function array_data_tahun(data) {
 
     });
 
-    return (Object.values(data_done).reverse());
+    return (Object.values(data_done));
 }
 
 function date_data_tahun(data) {
@@ -226,7 +226,7 @@ function date_data_tahun(data) {
             data_done[check] = check;
         }
     });
-    return (Object.values(data_done).reverse());
+    return (Object.values(data_done));
 }
 
 function grafik_tahun(data_api) {

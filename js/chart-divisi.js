@@ -141,7 +141,7 @@ function grafik(data_api) {
 
         yAxis: {
             title: {
-                text: 'Total Pendapatan/Pemasukan'
+                text: 'Total Pendapatan/Pengeluaran'
             }
         },
 
@@ -168,7 +168,7 @@ function grafik(data_api) {
         },
 
         series: [{
-            name: 'Total Pendapatan/Pemasukan',
+            name: 'Total Pendapatan/Pengeluaran',
             data: array_data(data_api)
         },],
 
@@ -222,7 +222,7 @@ function array_data_tahun(data) {
 
     });
 
-    return (Object.values(data_done).reverse());
+    return (Object.values(data_done));
 }
 
 function date_data_tahun(data) {
@@ -236,7 +236,7 @@ function date_data_tahun(data) {
             data_done[check] = check;
         }
     });
-    return (Object.values(data_done).reverse());
+    return (Object.values(data_done));
 }
 
 function grafik_tahun(data_api) {
@@ -254,7 +254,7 @@ function grafik_tahun(data_api) {
 
         yAxis: {
             title: {
-                text: 'Total Pendapatan/Pemasukan'
+                text: 'Total Pendapatan/Pengeluaran'
             }
         },
 
@@ -281,7 +281,7 @@ function grafik_tahun(data_api) {
         },
 
         series: [{
-            name: 'Total Pendapatan/Pemasukan',
+            name: 'Total Pendapatan/Pengeluaran',
             data: array_data_tahun(data_api)
         },],
 
