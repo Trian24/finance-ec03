@@ -15,7 +15,13 @@
 
 </head>
 
-<body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;">
+<body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;" onload="getDivisiPeriode();">
+  <div id="loading-container">
+    <div class="progress loading">
+      <div id="progress-bar" class="indeterminate"></div>
+    </div>
+    <div id="load-failed" class="container"></div>
+  </div>
   <!-- Navigasi -->
   <nav class="warna-biru" role="navigation">
     <div class="nav-wrapper container">
@@ -26,10 +32,10 @@
     </div>
   </nav>
   <!-- Akhir Navigasi -->
-
   <div class="container" id="body-content"></div>
   <script src="js/materialize.min.js"></script>
   <script src="js/nav.js"></script>
+  <script src="./js/loading.js"></script>     
   <script src="./js/chart-divisi.js"></script>        
 
 
@@ -44,13 +50,7 @@
         <div class="row">
 
             <div class="col m4 ">
-                <div class="input-field" onmousedown="this.value='';" onchange="getData();">
-                  <select id="get-divisi">
-                    <option value="Sales">Sales</option>
-                    <option value="Warehouse">Warehouse</option>
-                    <option value="Logistic">Logistic</option>
-                  </select>
-                  <label>Divisi</label>
+                <div id="divisi-periode" class="input-field" onmousedown="this.value='';" onchange="getData();">
                 </div>
               </div>
 

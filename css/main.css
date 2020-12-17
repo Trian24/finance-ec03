@@ -2,6 +2,23 @@
     background-color: #034079;
 }
 
+#loading-container {
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    position: fixed;
+    width: 100%;
+  }
+.loading {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+#load-failed {
+    position: relative;
+    top: 50%;
+}
+
 .kartu{
     background-color: #fff;
     border-radius:40px;

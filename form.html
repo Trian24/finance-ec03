@@ -11,7 +11,7 @@
     <script src="js/nav.js"></script>
   </head>
 
-  <body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;">
+  <body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;" onload="getDivisi()">
     <!-- Navigasi -->
     <nav class="warna-biru" role="navigation">
       <div class="nav-wrapper container">
@@ -45,16 +45,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
-                        <div class="input-field">
-                            <select class="validate" id="divisi" >
-                                <option selected="true" value="" disabled selected>Choose your option</option>
-                                <option value="SALES">Sales</option>
-                                <option value="LOGISTIC">Logistic</option>
-                                <option value="WAREHOUSE">Warehouse</option>
-                            </select>
-                            <label for="divisi">Pilih Divisi</label>
-                        </div>
+                    <div class="col s6" id="divisia">
+                        <!-- <div class="input-field"> -->
+                        <!-- </div> -->
                     </div>
 
                     <div class="col s6">

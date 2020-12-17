@@ -1,6 +1,6 @@
 var tahun_select = `2020`;
 var bulan_select = ``;
-var url_endpoint = `http://localhost:3000/transaction/`;
+var url_endpoint = `https://api-finance03.herokuapp.com/transaction`;
 var url_transaksiTahun = `${url_endpoint}?tahun=${tahun_select}`;
 var url_transaksiBulan = `${url_endpoint}?tahun=${tahun_select}&bulan=${bulan_select}`;
 
@@ -10,6 +10,7 @@ fetch(url_transaksiTahun)
             inputTotal_plus(data.total_pemasukan);
             inputTotal_min(data.total_pengeluaran);
             grafik_tahun(data);
+            finishLoading();
         })
     })
 
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function getData() {
-
+    startLoading();
     var bulan = document.getElementById("get-tanggal");
     bulan_select = bulan.options[bulan.selectedIndex].value;
     var tahun = document.getElementById("get-tahun");
@@ -41,6 +42,7 @@ function getData() {
                     inputTotal_plus(data.total_pemasukan);
                     inputTotal_min(data.total_pengeluaran);
                     grafik_tahun(data);
+                    finishLoading();
                 })
             })
     }
@@ -51,6 +53,7 @@ function getData() {
                     inputTotal_plus(data.total_pemasukan);
                     inputTotal_min(data.total_pengeluaran);
                     grafik(data);
+                    finishLoading();
                 })
             })
     }
@@ -59,13 +62,13 @@ function getData() {
 
 
 function inputTotal_plus(data) {
-    var total_plus = data;
+    var total_plus = data.toLocaleString('in-ID', { style: 'currency', currency: 'IDR'});
     document.getElementById("total-plus").innerHTML = total_plus;
 
 }
 
 function inputTotal_min(data) {
-    var total_min = data;
+    var total_min = data.toLocaleString('in-ID', { style: 'currency', currency: 'IDR'});
     document.getElementById("total-min").innerHTML = total_min;
 
 }

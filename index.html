@@ -16,6 +16,14 @@
 </head>
 
 <body style="background-color: #F4F7FC;  font-family: 'Source Sans Pro', sans-serif;">
+  
+  <div id="loading-container">
+    <div class="progress loading">
+      <div id="progress-bar" class="indeterminate"></div>
+    </div>
+    <div id="load-failed" class="container"></div>
+  </div>
+  
   <!-- Navigasi -->
   <nav class="warna-biru" role="navigation">
     <div class="nav-wrapper container">
@@ -26,7 +34,6 @@
     </div>
   </nav>
   <!-- Akhir Navigasi -->
-
   <div class="container" id="body-content"></div>
   <script src="js/materialize.min.js"></script>
   <script src="js/nav.js"></script>
@@ -89,7 +96,7 @@
               <div class="card-panel kartu">
                 <h2 class="center-align">Income</h2>
                 <div class="center-align jumlah-plus">
-                  <h3><b> + Rp <span id="total-plus">1.000.000</span></b></h3>
+                  <h3><b> + <span id="total-plus">1.000.000</span></b></h3>
                 </div>
               </div>
             </div>
@@ -103,7 +110,7 @@
               <div class="card-panel kartu">
                 <h2 class="center-align">Expense</h2>
                 <div class="center-align jumlah-min">
-                  <h3><b> - Rp <span id="total-min">1.000.000</span></b></h3>
+                  <h3><b> - <span id="total-min">1.000.000</span></b></h3>
                 </div>
               </div>
             </div>
@@ -122,6 +129,7 @@
             <div id="chart-period" class="chart-wrapper">
 
             </div>
+            <script src="./js/loading.js"></script>  
             <script src="./js/chart-periode.js"></script>
           </div>
         </div>

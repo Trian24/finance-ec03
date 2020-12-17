@@ -1,4 +1,4 @@
-var base_url = "http://localhost:3000/";
+var base_url = "https://api-finance03.herokuapp.com/";
 
 async function getTotal() {
     let response = await fetch(base_url+"total");
@@ -7,16 +7,16 @@ async function getTotal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var elem1 = document.querySelectorAll('select');
-    var elem2 = document.querySelectorAll('.datepicker');
-    var elem3 = document.querySelectorAll('.modal');
-    var options = {
-        format: 'yyyy-mm-dd', 
-        formatSubmit: 'yyyy-mm-dd'
-    };
-    var instance1 = M.FormSelect.init(elem1, {});
-    var instance2 = M.Datepicker.init(elem2, options);
-    var instance3 = M.Modal.init(elem3, {});
+  var elem1 = document.querySelectorAll('select');
+  var elem2 = document.querySelectorAll('.datepicker');
+  var elem3 = document.querySelectorAll('.modal');
+  var options = {
+      format: 'yyyy-mm-dd', 
+      formatSubmit: 'yyyy-mm-dd'
+  };
+  var instance1 = M.FormSelect.init(elem1, {});
+  var instance2 = M.Datepicker.init(elem2, options);
+  var instance3 = M.Modal.init(elem3, {});
 });
 
 async function hitungTotal(jumlah_transaksi, jenis) {
@@ -75,4 +75,23 @@ function formSent() {
     document.getElementById("date").value = "";
     document.getElementById("jumlah").value = "";
     deskripsi = document.getElementById("deskripsi").value = "";
+}
+
+function getDivisi() {
+  console.log('mengambil data divisi');
+  fetch("https://tugaseai2020.000webhostapp.com/TABELDIVISI.php")
+    .then(res => res.json())
+    .then(res => {
+      let html = `
+      <label for="divisi">Pilih Divisi</label>
+      <select class="validate" id="divisi" style="display: block;">`;
+      html += `<option selected="true" value="" disabled selected>Choose your option</option>`;
+      res[0].data.forEach(div => {
+        html += `<option value="${div.Divisi_Pegawai}">${div.Divisi_Pegawai}</option>`;
+      })
+      html += `
+      </select>`;
+      document.getElementById('divisia').innerHTML = html;
+      document.getElementById('divisia').normalize();
+    })
 }

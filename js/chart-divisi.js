@@ -1,15 +1,17 @@
 var tahun_select = `2020`;
 var bulan_select = ``;
 var divisi_select = `sales`;
-var url_endpoint = `http://localhost:3000/transaction/?divisi=${divisi_select}`;
+var url_endpoint = `https://api-finance03.herokuapp.com/transaction?divisi=${divisi_select}`;
 var url_transaksiTahun = `${url_endpoint}&tahun=${tahun_select}`;
 var url_transaksiBulan = `${url_endpoint}&tahun=${tahun_select}&bulan=${bulan_select}`;
 
 fetch(url_transaksiTahun)
     .then(function (response) {
         response.json().then(function (data) {
+            console.log(data, url_transaksiTahun);
             grafik_tahun(data);
             detilTransaksi(data);
+            finishLoading();
         })
     })
 
@@ -19,6 +21,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+
+function getDivisiPeriode() {
+  console.log('mengambil data divisi');
+  fetch("https://tugaseai2020.000webhostapp.com/TABELDIVISI.php")
+    .then(res => res.json())
+    .then(res => {
+      let html = `
+      <select id="get-divisi" style="display: block;">`;
+      res[0].data.forEach(div => {
+        if(div.Divisi_Pegawai !== 'Finance') {
+          html += `<option value="${div.Divisi_Pegawai}">${div.Divisi_Pegawai}</option>`;
+        }
+      })
+      html += `
+      </select>`;
+      document.getElementById('divisi-periode').innerHTML = html;
+      document.getElementById('divisi-periode').normalize();
+    })
+}
 
 function detilTransaksi(data) {
     var detTransaksi = ``;
@@ -30,7 +52,7 @@ function detilTransaksi(data) {
                 <td>${element.tanggal_transaksi}</td>
                 <td>${element.jenis_transaksi}</td>
                 <td>${element.divisi}</td>
-                <td>${element.jumlah_transaksi}</td>
+                <td>${element.jumlah_transaksi.toLocaleString('in-ID', { style: 'currency', currency: 'IDR'})}</td>
                 <td>${element.deskripsi}</td>
             </tr>`;
     });
@@ -38,7 +60,7 @@ function detilTransaksi(data) {
 }
 
 function getData() {
-
+    startLoading();
     var divisi = document.getElementById("get-divisi");
     divisi_select = divisi.options[divisi.selectedIndex].value;
     console.log(divisi_select)
@@ -51,7 +73,7 @@ function getData() {
     tahun_select = tahun.options[tahun.selectedIndex].value;
     console.log(tahun_select);
 
-    url_endpoint = `http://localhost:3000/transaction/?divisi=${divisi_select}`;
+    url_endpoint = `https://api-finance03.herokuapp.com/transaction?divisi=${divisi_select}`;
     url_transaksiTahun = `${url_endpoint}&tahun=${tahun_select}`;
     url_transaksiBulan = `${url_endpoint}&tahun=${tahun_select}&bulan=${bulan_select}`;
 
@@ -64,7 +86,8 @@ function getData() {
             .then(function (response) {
                 response.json().then(function (data) {
                     grafik_tahun(data);         
-                    detilTransaksi(data)
+                    detilTransaksi(data);
+                    finishLoading();
                 })
             })
     }
@@ -75,6 +98,7 @@ function getData() {
                 response.json().then(function (data) {
                     grafik(data);
                     detilTransaksi(data)
+                    finishLoading();
                 })
             })
     }
@@ -228,7 +252,7 @@ function array_data_tahun(data) {
 function date_data_tahun(data) {
     var check = ``;
     var data_done = [];
-
+    console.log(data);
 
     data.data.forEach(function (element) {
         if (element.tanggal_transaksi.substring(0, 7) != check) {
